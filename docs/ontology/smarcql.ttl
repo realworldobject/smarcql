@@ -1,0 +1,4 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix smarcql: <https://w3id.org/smarcql/> .
+
+smarcql: a owl:Ontology .
