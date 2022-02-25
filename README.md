@@ -1,2 +1,2 @@
 # smarcql
-TBD
+SPARQL + MARC = SMARCQL
