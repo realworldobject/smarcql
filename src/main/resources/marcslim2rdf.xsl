@@ -54,7 +54,7 @@
         </misc:leader>
     </xsl:template>
 
-    <!-- unparseable control fields (treat sa owl:DatatypeProperty) -->
+    <!-- unparseable control fields (treat as owl:DatatypeProperty) -->
     <xsl:template match="slim:controlfield[@tag='001' or @tag='003' or @tag='005']">
         <xsl:element name="tag:bd{@tag}">
             <xsl:value-of select="."/>
@@ -62,10 +62,10 @@
     </xsl:template>
 
     <!-- parseable control field (treat as owl:ObjectProperty) -->
-    <xsl:template match="slim:controlfield[@tag='008']">
+    <xsl:template match="slim:controlfield">
         <xsl:param name="recURI"/>
-        <xsl:element name="tag:bd008">
-            <rdf:Description rdf:about="{$recURI}#008--{generate-id(.)}">
+        <xsl:element name="tag:bd{@tag}">
+            <rdf:Description rdf:about="{$recURI}#{@tag}--{generate-id(.)}">
                 <rdf:value>
                     <xsl:value-of select="."/>
                 </rdf:value>

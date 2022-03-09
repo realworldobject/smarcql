@@ -1,7 +1,7 @@
 # Potential MARC/XML Sources for Testing
 
 Note that this repository doesn't include any MARC records, even for testing purposes. Records are
-available elsewhere, including the downloadable sources below.
+available elsewhere, however, including the downloadable sources below.
 
 Download these to you local src/test/resources/input/ folder:
 
