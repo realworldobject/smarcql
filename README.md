@@ -43,7 +43,7 @@ spark-submit \
 wget https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_2_1_6_RC/blazegraph.jar
 
 # Bulkload SMARCQL N-Triples
-# (~4 hours on MacBook Pro 8-Core Intel Core i9 @ 2.3 GHz)
+# (~5 hours on MacBook Pro 8-Core Intel Core i9 @ 2.3 GHz)
 java -cp blazegraph.jar com.bigdata.rdf.store.DataLoader src/main/resources/fastload.properties out.nt/part-00000.nt.gz
 
 # Start Blazegraph
