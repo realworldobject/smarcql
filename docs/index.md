@@ -8,5 +8,5 @@ this [Hanging Together](https://hangingtogether.org/how-marc-can-sparql/) blog p
 This site is dedicated to publishing the SMARCQL ontology, which is located 
 [here](https://w3id.org/smarcql/). (Just a stub for now, but with more to come.)
 
-The code and instructions to create and index SMARCQL from MARC/XML records is
+The code and instructions to create and index SMARCQL output from MARC/XML input records is
 located [here](https://github.com/realworldobject/smarcql).
