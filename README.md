@@ -42,14 +42,14 @@ java -cp blazegraph.jar com.bigdata.rdf.store.DataLoader src/main/resources/fast
 java -server -Xmx6g -jar blazegraph.jar
 ```
 
-Once it started, the default workbench location is http://localhost:9999/blazegraph/.
+Once Blazegraph has started, the default workbench location is http://localhost:9999/blazegraph/.
 
 Here is a "Hello World!" query to get started, with more to come...
 ```
 PREFIX tag: <https://w3id.org/smarcql/tag/>
 PREFIX code: <https://w3id.org/smarcql/code/>
 
-SELECT ?rec ?author ?title
+SELECT ?author (GROUP_CONCAT(?title;SEPARATOR="\n") AS ?titles)
 WHERE {
   ?rec tag:bd100 [
     code:sa ?author
@@ -58,5 +58,7 @@ WHERE {
       code:sa ?title
   ]
 }
-LIMIT 10
+GROUP BY ?author
+ORDER BY DESC(COUNT(?title))
+LIMIT 100
 ```
