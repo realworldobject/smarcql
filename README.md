@@ -38,6 +38,7 @@ spark-submit \
 wget https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_2_1_6_RC/blazegraph.jar
 
 # Bulkload SMARCQL N-Triples
+# (~4 hours on MacBook Pro 8-Core Intel Core i9 @ 2.3 GHz)
 java -cp blazegraph.jar com.bigdata.rdf.store.DataLoader src/main/resources/fastload.properties out.nt/part-00000.nt.gz
 
 # Start Blazegraph
@@ -45,3 +46,20 @@ java -server -Xmx6g -jar blazegraph.jar
 ```
 
 Once it started, the default workbench location is http://localhost:9999/blazegraph/.
+
+Here is a "Hello World!" query to get started, with more to come...
+```
+PREFIX tag: <https://w3id.org/smarcql/tag/>
+PREFIX code: <https://w3id.org/smarcql/code/>
+
+SELECT ?rec ?author ?title
+WHERE {
+  ?rec tag:bd100 [
+    code:sa ?author
+  ];
+  tag:bd245 [
+      code:sa ?title
+  ]
+}
+LIMIT 10
+```
