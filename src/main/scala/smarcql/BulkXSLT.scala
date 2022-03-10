@@ -1,4 +1,5 @@
 package smarcql
+import org.apache.hadoop.io.compress.GzipCodec
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
@@ -143,8 +144,7 @@ object BulkXSLT {
       rdfxml2nt
     }
     .distinct
-    .saveAsTextFile(out + ".nt")
-    //    .saveAsTextFile(out, classOf[GzipCodec])
+   .saveAsTextFile(out + ".nt", classOf[GzipCodec])
 
     // And close up shop
     sc.stop

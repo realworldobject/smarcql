@@ -21,7 +21,7 @@
     <xsl:strip-space elements="*" />
 
     <xsl:param name="baseURI">
-        <xsl:text>http://example.org</xsl:text>
+        <xsl:text>http://example.org/</xsl:text>
     </xsl:param>
 
     <xsl:template match="/">
@@ -33,7 +33,6 @@
     <xsl:template match="slim:record">
         <xsl:variable name="recURI">
             <xsl:value-of select="$baseURI"/>
-            <xsl:text>/record/</xsl:text>
             <xsl:value-of select="slim:controlfield[@tag='001']"/>
         </xsl:variable>
         <rdf:Description rdf:about="{$recURI}">
