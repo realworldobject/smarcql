@@ -26,6 +26,7 @@ sbt package
 rm -rf out.nt
 
 # Transform a set of line-separated MARC/XML records into SMARCQL N-Triples
+# (~1 hour on MacBook Pro 8-Core Intel Core i9 @ 2.3 GHz)
 spark-submit\
  --master local[*]\
  --jars\
