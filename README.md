@@ -1,9 +1,6 @@
 # smarcql
 SPARQL + MARC = SMARCQL
 
-(See the SMARCQL home page for details:)
-https://realworldobject.github.io/smarcql/
-
 ## Setup Instructions
 
 ```
