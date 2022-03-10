@@ -1,11 +1,12 @@
-## Welcome to SMARCQL Pages
+## Welcome to the SMARCQL Ontology
 
 SPARQL + MARC = SMARCQL
 
-(These pages are just stubs for now, but hopefully things will develop quickly.)
-
 The general idea of using SPARQL to index MARC is introduced in 
 this [Hanging Together](https://hangingtogether.org/how-marc-can-sparql/) blog post.
-The purpose here is to explore and share an implementation solution.
 
-A stub for the SMARCQL ontology is located [here](https://w3id.org/smarcql/), with more details to come soon.
+This site is dedicated to publishing the SMARCQL ontology, which is located 
+[here](https://w3id.org/smarcql/). (Just a stub for now, but with more to come.)
+
+The code and instructions to create and index SMARCQL from MARC/XML records is
+located [here](https://github.com/realworldobject/smarcql).
