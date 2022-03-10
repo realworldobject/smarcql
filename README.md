@@ -1,6 +1,14 @@
 # smarcql
 SPARQL + MARC = SMARCQL
 
+The general idea of using SPARQL to index MARC is introduced in
+this [Hanging Together](https://hangingtogether.org/how-marc-can-sparql/) blog post.
+
+This repository is dedicated to publishing code to demonstrate the processes
+involved.
+
+The SMARCQL Ontology that corresponds to this output can be found [here](https://realworldobject.github.io/smarcql/).
+
 ## Setup Instructions
 
 ```
