@@ -10,7 +10,7 @@ involved.
 The SMARCQL Ontology that corresponds to this output can be found [here](https://realworldobject.github.io/smarcql/).
 
 ## Setup Instructions
-These setup instructions aren't ideal, buf for an alpha realease, they might be good enough. Feel free
+These setup instructions aren't ideal, but for an alpha realease they might be good enough. Feel free
 to [create new issues](https://github.com/realworldobject/smarcql/issues) in the Github repository if you have 
 suggestions to improve the process.
 
