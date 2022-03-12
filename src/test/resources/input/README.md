@@ -3,7 +3,7 @@
 Note that this repository doesn't include any MARC records, even for testing purposes. Records are
 available elsewhere, however, including the downloadable sources below.
 
-Download these to you local src/test/resources/input/ folder:
+Download any of these to your local src/test/resources/input/ folder before running the
+[setup instructions](https://github.com/realworldobject/smarcql#user-content-setup-instructions):
 
-- Kefo GIST example - [sample-marc-with-xsd.xml](https://gist.github.com/kefo/796b39925e234fb6d912)
 - OCLC ResearchWorks - [Library Science Subset](https://researchworks.oclc.org/researchdata/libsci/cdf.20160701.library_science.marcxml.xml.gz)
