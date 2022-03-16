@@ -23,3 +23,5 @@ libraryDependencies += "org.apache.logging.log4j" % "log4j-core" % "2.15.0"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+
+libraryDependencies += "net.sf.saxon" % "Saxon-HE" % "10.6"

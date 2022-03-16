@@ -1,14 +1,15 @@
-package smarcql
+package com.github.smarcql
+
 import org.apache.hadoop.io.compress.GzipCodec
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
 
-import java.io.{ByteArrayInputStream, ByteArrayOutputStream, StringReader, StringWriter}
+import java.io.{ByteArrayInputStream, ByteArrayOutputStream, File, StringReader, StringWriter}
 import java.text.Normalizer
 import javax.xml.transform._
 import javax.xml.transform.stream._
-import scala.io.Source
+import scala.io.{BufferedSource, Source}
 
 object BulkXSLT {
 
@@ -64,23 +65,29 @@ object BulkXSLT {
     }
   }
 
-  /** Load an XSL file into memory */
-  def getXSLTransformer(xslFile: String): Transformer = {
-    val xsl: StreamSource = try {
+  //* generalized transformer factory */
+  def newTransformer(bs: BufferedSource): Transformer = {
+    assert(bs != null)
+//    val tf = TransformerFactory.newInstance()
+    val tf = new net.sf.saxon.TransformerFactoryImpl();
+    assert(tf != null)
+    val streamSource = new StreamSource(bs.reader)
+    assert(streamSource != null)
+    tf.newTransformer(streamSource)
+  }
+
+  /** Load an XSL file into memory via classpath */
+  def getXSLTransformer(resourcePath: String): Transformer = {
+    val bufferedSource: BufferedSource = try {
       //		      new StreamSource(Source.fromFile(xslFile).reader())
-      val clazz = getClass
-      val classLoader = clazz.getClassLoader
-      val stream = classLoader.getResourceAsStream(xslFile)
-      assert(stream != null)
-      val is = Source.fromInputStream(stream)
-      assert(is != null)
-      new StreamSource(is.reader)
+      val classLoader = getClass.getClassLoader
+      val inputStream = classLoader.getResourceAsStream(resourcePath)
+      assert(inputStream != null)
+      Source.fromInputStream(inputStream)
     } catch {
-      case e: Throwable =>
-        throw e
+      case e: Throwable => throw e
     }
-    val tf = TransformerFactory.newInstance()
-    tf.newTransformer(xsl)
+    newTransformer(bufferedSource)
   }
 
   /** Pipeline to convert a set of line-separated RDF/XML documents into N-Triples */
