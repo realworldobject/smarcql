@@ -5,14 +5,14 @@
         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
         xmlns:slim="http://www.loc.gov/MARC21/slim"
         xmlns:tag="https://w3id.org/smarcql/tag/"
+        xmlns:position="https://w3id.org/smarcql/position/"
         xmlns:misc="https://w3id.org/smarcql/misc/"
         xmlns:code="https://w3id.org/smarcql/code/"
-        xmlns:java="http://xml.apache.org/xalan/java"
         xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
         version="2.0">
 
     <xsl:output
-            media-type="application/rdf+sml"
+            media-type="application/rdf+xml"
             method="xml"
             version="1.0"
             indent="yes"
@@ -44,13 +44,21 @@
 
     <xsl:template match="slim:leader">
         <xsl:param name="recURI"/>
-        <misc:leader>
-            <rdf:Description rdf:about="{$recURI}#leader">
+        <tag:bdleader>
+            <rdf:Description rdf:about="{$recURI}#bdleader">
                 <rdf:value>
                     <xsl:value-of select="."/>
                 </rdf:value>
+                <position:bdleader_05 rdf:resource="https://w3id.org/smarcql/individual/bdleader_05-{encode-for-uri(substring(., 6, 1))}"/>
+                <position:bdleader_06 rdf:resource="https://w3id.org/smarcql/individual/bdleader_06-{encode-for-uri(substring(., 7, 1))}"/>
+                <position:bdleader_07 rdf:resource="https://w3id.org/smarcql/individual/bdleader_07-{encode-for-uri(substring(., 8, 1))}"/>
+                <position:bdleader_08 rdf:resource="https://w3id.org/smarcql/individual/bdleader_08-{encode-for-uri(substring(., 9, 1))}"/>
+                <position:bdleader_09 rdf:resource="https://w3id.org/smarcql/individual/bdleader_09-{encode-for-uri(substring(., 10, 1))}"/>
+                <position:bdleader_17 rdf:resource="https://w3id.org/smarcql/individual/bdleader_17-{encode-for-uri(substring(., 18, 1))}"/>
+                <position:bdleader_18 rdf:resource="https://w3id.org/smarcql/individual/bdleader_18-{encode-for-uri(substring(., 19, 1))}"/>
+                <position:bdleader_19 rdf:resource="https://w3id.org/smarcql/individual/bdleader_19-{encode-for-uri(substring(., 20, 1))}"/>
             </rdf:Description>
-        </misc:leader>
+        </tag:bdleader>
     </xsl:template>
 
     <!-- unparseable control fields (treat as owl:DatatypeProperty) -->
@@ -98,7 +106,7 @@
                 <xsl:text>_</xsl:text>
                 <xsl:value-of select="local-name()"/>
                 <xsl:text>_</xsl:text>
-                <xsl:value-of select="java:java.net.URLEncoder.encode(.)"/>
+                <xsl:value-of select="encode-for-uri(.)"/>
             </xsl:attribute>
         </xsl:element>
     </xsl:template>

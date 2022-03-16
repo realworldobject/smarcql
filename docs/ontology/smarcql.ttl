@@ -1,4 +1,202 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix smarcql: <https://w3id.org/smarcql/> .
+@prefix class: <https://w3id.org/smarcql/class/> .
+@prefix tag: <https://w3id.org/smarcql/tag/> .
+@prefix code: <https://w3id.org/smarcql/code/> .
+@prefix position: <https://w3id.org/smarcql/position/> .
+@prefix individual: <https://w3id.org/smarcql/individual/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
 
-smarcql: a owl:Ontology .
+smarcql:  rdf:type  owl:Ontology ;
+        rdfs:label  "SMARCQL Ontology"@en .
+
+class:BdLeader  rdf:type  owl:Class ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Leader"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdLeader_06  rdf:type  owl:Class ;
+        rdf:value         "06" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Type of record"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdLeader_07  rdf:type  owl:Class ;
+        rdf:value         "07" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Bibliographic level"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdRecord  rdf:type  owl:Class ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "MARC Bibligraphic Record"@en .
+
+individual:bdleader_06-a
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "a" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Language material"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-c
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "c" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Notated music"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-d
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "d" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Manuscript notated music"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-e
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "e" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Cartographic material"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-f
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "f" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Manuscript cartographic material"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-g
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "g" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Projected medium"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-i
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "i" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Nonmusical sound recording"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-j
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "j" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Musical sound recording"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-k
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "k" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Two-dimensional nonprojected graphic"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-m
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "m" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Computer file"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-o
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "o" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Kit"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-p
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "p" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Mixed materials"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-r
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "r" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Three-dimensional artifact or naturally occurring object"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_06-t
+        rdf:type          class:BdLeader_06 ;
+        rdf:value         "t" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Manuscript language material"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_07-a
+        rdf:type          class:BdLeader_07 ;
+        rdf:value         "a" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Monographic component part"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_07-b
+        rdf:type          class:BdLeader_07 ;
+        rdf:value         "b" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Serial component part"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_07-c
+        rdf:type          class:BdLeader_07 ;
+        rdf:value         "c" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Collection"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_07-d
+        rdf:type          class:BdLeader_07 ;
+        rdf:value         "d" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Subunit"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_07-i
+        rdf:type          class:BdLeader_07 ;
+        rdf:value         "i" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Integrating resource"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_07-m
+        rdf:type          class:BdLeader_07 ;
+        rdf:value         "m" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Monograph/Item"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+individual:bdleader_07-s
+        rdf:type          class:BdLeader_07 ;
+        rdf:value         "s" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Serial"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+position:bdleader_06  rdf:type  owl:ObjectProperty ;
+        rdfs:domain       class:BdLeader ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Type of record"@en ;
+        rdfs:range        class:BdLeader_06 ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+position:bdleader_07  rdf:type  owl:ObjectProperty ;
+        rdfs:domain       class:BdLeader ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Bibliographic level"@en ;
+        rdfs:range        class:BdLeader_07 ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+tag:bdleader  rdf:type    owl:ObjectProperty ;
+        rdfs:domain       class:BdRecord ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Leader (NR)"@en ;
+        rdfs:range        class:BdLeader ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
