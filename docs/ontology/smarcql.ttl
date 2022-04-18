@@ -335,6 +335,34 @@ individual:bdleader_17_8
         rdfs:label        "Prepublication level"@en ;
         wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
 
+individual:bdleader_17_I
+        rdf:type          class:BdLeader_17 ;
+        rdf:value         "I" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Full level input by OCLC participants"@en ;
+        wdrs:describedby  <https://www.oclc.org/bibformats/en/fixedfield/elvl.html> .
+
+individual:bdleader_17_J
+        rdf:type          class:BdLeader_17 ;
+        rdf:value         "J" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Deleted record"@en ;
+        wdrs:describedby  <https://www.oclc.org/bibformats/en/fixedfield/elvl.html> .
+
+individual:bdleader_17_K
+        rdf:type          class:BdLeader_17 ;
+        rdf:value         "K" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Minimal level input by OCLC participants"@en ;
+        wdrs:describedby  <https://www.oclc.org/bibformats/en/fixedfield/elvl.html> .
+
+individual:bdleader_17_M
+        rdf:type          class:BdLeader_17 ;
+        rdf:value         "M" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Added from a batch process"@en ;
+        wdrs:describedby  <https://www.oclc.org/bibformats/en/fixedfield/elvl.html> .
+
 individual:bdleader_17_u
         rdf:type          class:BdLeader_17 ;
         rdf:value         "u" ;
