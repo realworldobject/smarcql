@@ -17,6 +17,12 @@ class:BdLeader  rdf:type  owl:Class ;
         rdfs:label        "Leader"@en ;
         wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
 
+class:BdLeader_05  rdf:type  owl:Class ;
+        rdf:value         "05" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Record status"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
 class:BdLeader_06  rdf:type  owl:Class ;
         rdf:value         "06" ;
         rdfs:isDefinedBy  smarcql: ;
@@ -27,6 +33,36 @@ class:BdLeader_07  rdf:type  owl:Class ;
         rdf:value         "07" ;
         rdfs:isDefinedBy  smarcql: ;
         rdfs:label        "Bibliographic level"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdLeader_08  rdf:type  owl:Class ;
+        rdf:value         "08" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Type of control"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdLeader_09  rdf:type  owl:Class ;
+        rdf:value         "09" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Character coding scheme"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdLeader_17  rdf:type  owl:Class ;
+        rdf:value         "17" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Encoding level"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdLeader_18  rdf:type  owl:Class ;
+        rdf:value         "18" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Descriptive cataloging form"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+class:BdLeader_19  rdf:type  owl:Class ;
+        rdf:value         "19" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Multipart resource record level"@en ;
         wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
 
 class:BdRecord  rdf:type  owl:Class ;
