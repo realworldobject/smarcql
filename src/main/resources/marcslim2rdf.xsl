@@ -49,14 +49,14 @@
                 <rdf:value>
                     <xsl:value-of select="."/>
                 </rdf:value>
-                <position:bdleader_05 rdf:resource="https://w3id.org/smarcql/individual/bdleader_05-{encode-for-uri(substring(., 6, 1))}"/>
-                <position:bdleader_06 rdf:resource="https://w3id.org/smarcql/individual/bdleader_06-{encode-for-uri(substring(., 7, 1))}"/>
-                <position:bdleader_07 rdf:resource="https://w3id.org/smarcql/individual/bdleader_07-{encode-for-uri(substring(., 8, 1))}"/>
-                <position:bdleader_08 rdf:resource="https://w3id.org/smarcql/individual/bdleader_08-{encode-for-uri(substring(., 9, 1))}"/>
-                <position:bdleader_09 rdf:resource="https://w3id.org/smarcql/individual/bdleader_09-{encode-for-uri(substring(., 10, 1))}"/>
-                <position:bdleader_17 rdf:resource="https://w3id.org/smarcql/individual/bdleader_17-{encode-for-uri(substring(., 18, 1))}"/>
-                <position:bdleader_18 rdf:resource="https://w3id.org/smarcql/individual/bdleader_18-{encode-for-uri(substring(., 19, 1))}"/>
-                <position:bdleader_19 rdf:resource="https://w3id.org/smarcql/individual/bdleader_19-{encode-for-uri(substring(., 20, 1))}"/>
+                <position:bdleader_05 rdf:resource="https://w3id.org/smarcql/individual/bdleader_05_{encode-for-uri(substring(., 6, 1))}"/>
+                <position:bdleader_06 rdf:resource="https://w3id.org/smarcql/individual/bdleader_06_{encode-for-uri(substring(., 7, 1))}"/>
+                <position:bdleader_07 rdf:resource="https://w3id.org/smarcql/individual/bdleader_07_{encode-for-uri(substring(., 8, 1))}"/>
+                <position:bdleader_08 rdf:resource="https://w3id.org/smarcql/individual/bdleader_08_{encode-for-uri(substring(., 9, 1))}"/>
+                <position:bdleader_09 rdf:resource="https://w3id.org/smarcql/individual/bdleader_09_{encode-for-uri(substring(., 10, 1))}"/>
+                <position:bdleader_17 rdf:resource="https://w3id.org/smarcql/individual/bdleader_17_{encode-for-uri(substring(., 18, 1))}"/>
+                <position:bdleader_18 rdf:resource="https://w3id.org/smarcql/individual/bdleader_18_{encode-for-uri(substring(., 19, 1))}"/>
+                <position:bdleader_19 rdf:resource="https://w3id.org/smarcql/individual/bdleader_19_{encode-for-uri(substring(., 20, 1))}"/>
             </rdf:Description>
         </tag:bdleader>
     </xsl:template>
