@@ -8,6 +8,7 @@
         xmlns:position="https://w3id.org/smarcql/position/"
         xmlns:misc="https://w3id.org/smarcql/misc/"
         xmlns:code="https://w3id.org/smarcql/code/"
+        xmlns:owl="http://www.w3.org/2002/07/owl#"
         xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
         version="2.0">
 
@@ -87,6 +88,7 @@
                 <xsl:apply-templates select="." mode="rdfs:label"/>
 
                 <xsl:apply-templates>
+                    <xsl:with-param name="recURI" select="$recURI"/>
                     <xsl:with-param name="tag" select="@tag"/>
                 </xsl:apply-templates>
             </rdf:Description>
@@ -99,6 +101,7 @@
     <!-- Treat the indicators as owl:ObjectProperty links to pre-defined concepts in the SMARCQL ontology -->
     <xsl:template match="@ind1|@ind2">
         <xsl:param name="tag"/>
+
         <xsl:element name="ind:{local-name()}">
             <xsl:attribute name="rdf:resource">
                 <xsl:text>https://w3id.org/smarcql/individual/bd</xsl:text>
@@ -112,9 +115,49 @@
     </xsl:template>
 
     <xsl:template match="slim:subfield">
+        <xsl:param name="recURI"/>
+
         <xsl:element name="code:s{@code}">
             <xsl:value-of select="."/>
         </xsl:element>
+
+        <xsl:if test="@code='6'">
+            <xsl:variable name="linkingTag">
+                <xsl:value-of select="substring-before(., '-')"/>
+            </xsl:variable>
+            <xsl:variable name="occurrenceNumber">
+                <xsl:choose>
+                    <xsl:when test="contains(., '/')">
+                        <xsl:value-of select="substring-before(substring-after(., '-'), '/')"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="substring-after(., '-')"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+
+            <code:s6_linkingTag>
+                <xsl:value-of select="$linkingTag"/>
+            </code:s6_linkingTag>
+
+            <xsl:if test="$occurrenceNumber != '00'">
+                <owl:sameAs rdf:resource="{$recURI}#{$linkingTag}--{generate-id(../../slim:datafield[@tag=$linkingTag][number($occurrenceNumber)])}"/>
+            </xsl:if>
+
+            <xsl:if test="string-length(.) - string-length(translate(., '/', ''))=1">
+                <code:s6_scriptIdentificationCode>
+                    <xsl:value-of select="substring-after(., '/')"/>
+                </code:s6_scriptIdentificationCode>
+            </xsl:if>
+        </xsl:if>
+        <xsl:if test="string-length(.) - string-length(translate(., '/', ''))=2">
+            <code:s6_scriptIdentificationCode>
+                <xsl:value-of select="substring-before(substring-after(., '/'), '/')"/>
+            </code:s6_scriptIdentificationCode>
+            <code:s6_orientationCode>
+                <xsl:value-of select="substring-after(substring-after(., '/'), '/')"/>
+            </code:s6_orientationCode>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="*" mode="rdfs:label">
@@ -133,6 +176,7 @@
 
     <xsl:template match="*|@*">
         <xsl:message>
+            <xsl:text>Missing stuff...</xsl:text>
             <xsl:copy-of select="."/>
         </xsl:message>
     </xsl:template>
