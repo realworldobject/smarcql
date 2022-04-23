@@ -151,7 +151,7 @@ object BulkXSLT {
       rdfxml2nt
     }
     .distinct
-   .saveAsTextFile(out + ".nt", classOf[GzipCodec])
+    .saveAsTextFile(out + ".nt", classOf[GzipCodec])
 
     // And close up shop
     sc.stop
