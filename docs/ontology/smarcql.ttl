@@ -69,6 +69,25 @@ class:BdRecord  rdf:type  owl:Class ;
         rdfs:isDefinedBy  smarcql: ;
         rdfs:label        "MARC Bibligraphic Record"@en .
 
+class:Script  rdf:type    owl:Class ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Script" .
+
+code:s6_fieldOrientationCode
+        rdf:type          owl:ObjectProperty ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "$6 fieldOrientationCode"@en .
+
+code:s6_linkingTag  rdf:type  owl:ObjectProperty ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "$6 linking tag"@en .
+
+code:s6_scriptIdentificationCode
+        rdf:type          owl:ObjectProperty ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "$6 script identification code"@en ;
+        rdfs:range        class:Script .
+
 individual:bdleader_05_a
         rdf:type          class:BdLeader_05 ;
         rdf:value         "a" ;
@@ -446,6 +465,104 @@ individual:bdleader_19_c
         rdfs:isDefinedBy  smarcql: ;
         rdfs:label        "Part with dependent title"@en ;
         wdrs:describedby  <https://www.loc.gov/marc/bibliographic/bdleader.html> .
+
+<https://w3id.org/smarcql/individual/s6_scriptIdentificationCode_%241>
+        rdf:type          class:Script ;
+        rdf:value         "$1" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Chinese, Japanese, Korean"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+<https://w3id.org/smarcql/individual/s6_scriptIdentificationCode_%282>
+        rdf:type          class:Script ;
+        rdf:value         "(2" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Hebrew"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+<https://w3id.org/smarcql/individual/s6_scriptIdentificationCode_%283>
+        rdf:type          class:Script ;
+        rdf:value         "(3" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Arabic"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+<https://w3id.org/smarcql/individual/s6_scriptIdentificationCode_%284>
+        rdf:type          class:Script ;
+        rdf:value         "(4" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Extended Arabic"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+<https://w3id.org/smarcql/individual/s6_scriptIdentificationCode_%28N>
+        rdf:type          class:Script ;
+        rdf:value         "(N" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Cyrillic"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+<https://w3id.org/smarcql/individual/s6_scriptIdentificationCode_%28Q>
+        rdf:type          class:Script ;
+        rdf:value         "(Q" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Extended Cyrillic"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+<https://w3id.org/smarcql/individual/s6_scriptIdentificationCode_%28S>
+        rdf:type          class:Script ;
+        rdf:value         "(S" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Greek"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+individual:s6_scriptIdentificationCode_Armn
+        rdf:type          class:Script ;
+        rdf:value         "Armn" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Armenian"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+individual:s6_scriptIdentificationCode_Beng
+        rdf:type          class:Script ;
+        rdf:value         "Beng" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Bengali"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+individual:s6_scriptIdentificationCode_Cyrl
+        rdf:type          class:Script ;
+        rdf:value         "Cyrl" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Cyrillic"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+individual:s6_scriptIdentificationCode_Deva
+        rdf:type          class:Script ;
+        rdf:value         "Deva" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Devanagari"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+individual:s6_scriptIdentificationCode_Taml
+        rdf:type          class:Script ;
+        rdf:value         "Taml" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Taml"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+individual:s6_scriptIdentificationCode_Thai
+        rdf:type          class:Script ;
+        rdf:value         "Thai" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Thai"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
+
+individual:s6_scriptIdentificationCode_Zsym
+        rdf:type          class:Script ;
+        rdf:value         "Zsym" ;
+        rdfs:isDefinedBy  smarcql: ;
+        rdfs:label        "Symbols"@en ;
+        wdrs:describedby  <https://www.loc.gov/marc/bibliographic/ecbdcntf.html> .
 
 position:bdleader_05  rdf:type  owl:ObjectProperty ;
         rdfs:domain       class:BdLeader ;
