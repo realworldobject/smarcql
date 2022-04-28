@@ -8,6 +8,7 @@
         xmlns:position="https://w3id.org/smarcql/position/"
         xmlns:misc="https://w3id.org/smarcql/misc/"
         xmlns:code="https://w3id.org/smarcql/code/"
+        xmlns:ind="https://w3id.org/smarcql/ind/"
         xmlns:owl="http://www.w3.org/2002/07/owl#"
         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
         xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
@@ -17,7 +18,7 @@
             media-type="application/rdf+xml"
             method="xml"
             version="1.0"
-            indent="yes"
+            indent="no"
             encoding="UTF-8"/>
 
     <xsl:strip-space elements="*" />
@@ -39,7 +40,7 @@
     <xsl:template match="slim:record">
         <xsl:variable name="recURI">
             <xsl:value-of select="$baseURI"/>
-            <xsl:value-of select="slim:controlfield[@tag='001']"/>
+            <xsl:value-of select="translate(slim:controlfield[@tag='001'], ' ', '')"/>
         </xsl:variable>
         <rdf:Description rdf:about="{$recURI}">
             <xsl:apply-templates>
@@ -92,7 +93,7 @@
             <rdf:Description rdf:about="{$recURI}#{@tag}--{generate-id(.)}">
                 <xsl:apply-templates select="." mode="rdfs:label"/>
 
-                <xsl:apply-templates>
+                <xsl:apply-templates select="*|@*">
                     <xsl:with-param name="recURI" select="$recURI"/>
                     <xsl:with-param name="tag" select="@tag"/>
                 </xsl:apply-templates>
@@ -105,6 +106,7 @@
 
     <!-- Treat the indicators as owl:ObjectProperty links to pre-defined concepts in the SMARCQL ontology -->
     <xsl:template match="@ind1|@ind2">
+        <xsl:param name="recURI"/>
         <xsl:param name="tag"/>
 
         <xsl:element name="ind:{local-name()}">
