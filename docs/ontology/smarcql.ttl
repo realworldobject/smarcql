@@ -8,6 +8,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
 
 smarcql:  rdf:type  owl:Ontology ;
         rdfs:label  "SMARCQL Ontology"@en .
@@ -73,6 +75,12 @@ class:Script  rdf:type    owl:Class ;
         rdfs:isDefinedBy  smarcql: ;
         rdfs:label        "Script" .
 
+class:bd780_ind2  rdf:type  owl:Class ;
+        rdfs:label  "Type of relationship"@en .
+
+class:bd785_ind2  rdf:type  owl:Class ;
+        rdfs:label  "Type of relationship"@en .
+
 code:s6_fieldOrientationCode
         rdf:type          owl:ObjectProperty ;
         rdfs:isDefinedBy  smarcql: ;
@@ -87,6 +95,84 @@ code:s6_scriptIdentificationCode
         rdfs:isDefinedBy  smarcql: ;
         rdfs:label        "$6 script identification code"@en ;
         rdfs:range        class:Script .
+
+individual:bd780_ind2_0
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Continues"@en ;
+        skos:mappingRelation  bf:continues .
+
+individual:bd780_ind2_1
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Continues in part"@en ;
+        skos:mappingRelation  bf:continuesInPart .
+
+individual:bd780_ind2_2
+        rdf:type    class:bd780_ind2 ;
+        rdfs:label  "Supersedes"@en .
+
+individual:bd780_ind2_3
+        rdf:type    class:bd780_ind2 ;
+        rdfs:label  "Supersedes in part"@en .
+
+individual:bd780_ind2_4
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Formed by the union of ... and ..."@en ;
+        skos:mappingRelation  bf:mergerOf .
+
+individual:bd780_ind2_5
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Absorbed"@en ;
+        skos:mappingRelation  bf:absorbed .
+
+individual:bd780_ind2_6
+        rdf:type    class:bd780_ind2 ;
+        rdfs:label  "Absorbed in part"@en .
+
+individual:bd780_ind2_7
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Separated from"@en ;
+        skos:mappingRelation  bf:separatedFrom .
+
+individual:bd785_ind2_0
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Continued by"@en ;
+        skos:mappingRelation  bf:continuedBy .
+
+individual:bd785_ind2_1
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Continued in part by"@en ;
+        skos:mappingRelation  bf:continuedByInPart .
+
+individual:bd785_ind2_2
+        rdf:type    class:bd780_ind2 ;
+        rdfs:label  "Superseded by"@en .
+
+individual:bd785_ind2_3
+        rdf:type    class:bd780_ind2 ;
+        rdfs:label  "Superseded in part by"@en .
+
+individual:bd785_ind2_4
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Absorbed by"@en ;
+        skos:mappingRelation  bf:absorbedBy .
+
+individual:bd785_ind2_5
+        rdf:type    class:bd780_ind2 ;
+        rdfs:label  "Absorbed in part by"@en .
+
+individual:bd785_ind2_6
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Split into ... and ..."@en ;
+        skos:mappingRelation  bf:splitInto .
+
+individual:bd785_ind2_7
+        rdf:type              class:bd780_ind2 ;
+        rdfs:label            "Merged with ... to form ..."@en ;
+        skos:mappingRelation  bf:mergedToForm .
+
+individual:bd785_ind2_8
+        rdf:type    class:bd780_ind2 ;
+        rdfs:label  "Changed back to"@en .
 
 individual:bdleader_05_a
         rdf:type          class:BdLeader_05 ;

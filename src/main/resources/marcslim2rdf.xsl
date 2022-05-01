@@ -109,7 +109,7 @@
         <xsl:param name="recURI"/>
         <xsl:param name="tag"/>
 
-        <xsl:element name="ind:bd{$tag}_{local-name()}">
+        <xsl:element name="ind:{local-name()}">
             <xsl:attribute name="rdf:resource">
                 <xsl:text>https://w3id.org/smarcql/individual/bd</xsl:text>
                 <xsl:value-of select="$tag"/>
