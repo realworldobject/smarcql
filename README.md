@@ -65,6 +65,11 @@ $COURSIER_CACHE/https/repo1.maven.org/maven2/org/apache/jena/jena-iri/3.13.1/jen
 # Hack the Spark "parts" output filename so the loader recognizes it as GZipped N-Triples (.nt.gz)
 mv out.nt/part-00000.gz out.nt/part-00000.nt.gz
 
+# Index the N-triples in Blazegraph
+
+# If you're on a Mac, run this command in a 2nd windows so it doesn't go to sleep.
+caffeinate
+
 # Bulkload SMARCQL N-Triples
 # (~5 hours on MacBook Pro 8-Core Intel Core i9 @ 2.3 GHz)
 java -cp blazegraph.jar com.bigdata.rdf.store.DataLoader src/main/resources/fastload.properties out.nt/part-00000.nt.gz
@@ -91,11 +96,15 @@ unzip 2020445558_2019.zip
 for f in 2020445558_2019/Serials.2019.part*.xml.gz;
   do
     echo $f
-    gzcat $f | java -cp ~/.sbt/boot/scala-2.12.15/lib/scala-library.jar:target/scala-2.12/smarcql_2.12-0.1.jar com.github.smarcql.NormalizerNFC |  java -Xmx6g -jar /Users/jyoung/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -s:- -xsl:src/main/resources/marcslim2rdf.xsl | rdfxml --output=ntriples | gzip > $f.nt.gz
+    gzcat $f | java -cp ~/.sbt/boot/scala-2.12.15/lib/scala-library.jar:target/scala-2.12/smarcql_2.12-0.1.jar com.github.smarcql.NormalizerNFC |  java -Xmx6g -jar /Users/jyoung/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -s:- -xsl:src/main/resources/marcslim2rdf.xsl baseURI=https://lccn.loc.gov/ | rdfxml --output=ntriples | gzip > $f.nt.gz
   done
 
 # Index the N-triples in Blazegraph
 
+# If you're on a Mac, run this command in a 2nd windows so it doesn't go to sleep.
+caffeinate
+
+# Bulkload SMARCQL N-Triples
 java -cp blazegraph.jar com.bigdata.rdf.store.DataLoader src/main/resources/fastload.properties 2020445558_2019/Serials.2019.part*.xml.gz.nt.gz
 
 # Start Blazegraph
